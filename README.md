@@ -1,4 +1,3 @@
-Here’s a **README** file for your Real Estate Management project on GitHub:
 
 ---
 
