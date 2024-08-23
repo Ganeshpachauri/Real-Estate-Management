@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-context-bar">
+        <div class="slds-context-bar__primary">
+            <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-hover">
+               
+                <span class="slds-context-bar__label-action slds-context-bar__app-name">
+                    <lightning-icon style="padding: 0.5rem; border-radius: 2rem;" class="builderIcon" icon-name='standard:agent_home' alternative-text='agent_home' size='large' title='agent_home'>WOW</lightning-icon>
+                    <span title="App Name"  class="CompanyName">Briskminds Real Estate</span>
+                </span>
+            </div>
+        </div>
+        <nav style="margin-left: 8rem" class="slds-context-bar__secondary" role="navigation">
+            <ul class="slds-grid">
+                <li class="slds-context-bar__item">
+                    <a href="#" class="slds-context-bar__label-action" title="Home">
+                        <span class="slds-truncate" title="Home"  onclick={handleHomePage}>Home</span>
+                    </a>
+                </li>
+
+                <li class="slds-context-bar__item">
+                    <a href="#" class="slds-context-bar__label-action" title="About Us">
+                        <span class="slds-truncate" title="Menu Item" onclick={handleAboutUsPage}>About Us</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</template>

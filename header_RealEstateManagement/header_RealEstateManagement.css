@@ -1,0 +1,17 @@
+*{
+    font-size:large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(0, 0, 0);
+}
+.builderIcon{
+    margin-right: 4px;
+    border: 5px solid #16ffff;
+    border-radius: 18px;
+}
+
+.CompanyName{
+    font-weight: bolder; 
+    margin-right: -4rem; 
+    font-size: 1.7rem; 
+    padding-bottom: 0.3rem;
+}

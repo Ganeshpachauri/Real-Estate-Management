@@ -1,0 +1,153 @@
+<template>
+    <div if:true={showSpinner} style=" background-color:rgb(246, 227, 176); height: 80px;">
+        <lightning-spinner style="position: fixed;" alternative-text="Loading" variant="brand"></lightning-spinner>
+    </div>
+    <div class="slds-size_3-of-4 cardScoll">
+        <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+            <lightning-carousel>
+                <lightning-carousel-image
+                src = {hero0}
+                header = "BRISKMINDS REAL ESTATE MANAGEMENT SYSTEM."
+                alternative-text = "First card accessible description."
+                href = "javascript:void(0);">
+            </lightning-carousel-image>
+                <lightning-carousel-image
+                    src = {hero1}
+                    header = "FROM DREAMS TO DELEVER ALWAYS  WITH YOU"
+                    alternative-text = "First card accessible description."
+                    href = "javascript:void(0);">
+                </lightning-carousel-image>
+                <lightning-carousel-image
+                    src = {hero2}
+                    header = "IT TAKES LOTS TO BE UNIQUE"
+                    alternative-text = "Second card accessible description."
+                    href = "javascript:void(0);">
+                </lightning-carousel-image>
+                <lightning-carousel-image
+                    src = {hero3}
+                    header = "TOGETHER WE ARE UNIQUE"
+                    alternative-text = "Third card accessible description."
+                    href = "javascript:void(0);">
+                </lightning-carousel-image>
+            </lightning-carousel>
+        </div>
+    </div>
+
+
+    <div class="container cont1500 homeSearch">
+        <div class="poppins-light">
+            Looking for a Property? Seach below.
+        </div>
+     <!-- <form role="search" action="https://www.uniquegroup.in/" method="get" id="searchform"> -->
+        <div>
+            <input type="hidden" name="post_type" value="projects">
+            <ul style="display:flex;justify-content:center">
+                <li>
+                    <div class="form-group">						
+                        <div style="padding:0px 10px">
+                            <lightning-combobox
+                                    style="width: 15rem;"
+                                    name="propertyType"
+                                    value={propertyTypeValue}
+                                    placeholder="Select Type"
+                                    options={Property_Type_Options}
+                                    onchange={PropertySearchChange} >
+                            </lightning-combobox>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">							
+                        <div style="padding:0px 10px">
+                            <lightning-combobox
+                            class="WOWTEMP"
+                                    style="width: 15rem;"
+                                    name="propertyCity"
+                                    value={propertyTypeCity}
+                                    placeholder="Select City"
+                                    options={Property_City_Options}
+                                    onchange={PropertySearchChange} >
+                            </lightning-combobox>
+                        </div>	
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">
+                        <div style="padding:0px 10px"> 
+                            <lightning-combobox
+                                    style="width: 15rem;"
+                                    name="propertyPrice"
+                                    value={propertyTypePrice}
+                                    placeholder="Select Price"
+                                    options={Property_Price_Options}
+                                    onchange={PropertySearchChange} >
+                            </lightning-combobox>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="seachBtnEle">
+                <li><button style="border: 1px solid; border-radius: 6px; padding: 2px 22px; color: black; font-weight: 500; background: #ffffff5e;" onclick={fetchProperties}>Search</button></li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin: 2rem 0;background: #f5f5f8; border-radius: 10px;">
+        <template if:true={showProperties}>
+            <template if:true={properties}>
+                <template for:each={properties} for:item="property">
+                    <div key={property.id} class="property-card">
+                        <img src={property.image} alt="Property Image" class="property-image"/>
+                        <h2>{property.Title}</h2>
+                        <div class="subItem">
+                            <div class="subInfo">🏠 {property.BHK} BHK</div>
+                            <div class="subInfo">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                            <div class="subInfo">🧱 {property.Size} Sqrt</div>
+                        </div>
+                        <div class="subItem">
+                            <div class="subInfo">🗺️ {property.city}</div>
+                            <div class="subInfo">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                            <div class="subInfo"><strong style="color: rgb(22 60 26); font-weight: 900;">₹ </strong> {property.price}</div>
+                        </div>
+                        <div class="subInfo" style="font-weight: 300;">{property.type}</div>
+                        <button class="getEnquiry" data-proid={property.id} onclick={getPropertyDetail} >Get Detail</button>
+                    </div>
+                </template>
+            </template>
+            <template if:false={properties.length}>
+                <p class="noProperty">No Properties Found 🦉</p>
+            </template>
+        </template>
+    </div>
+    <div class="testimonial">
+    <figure class="snip1533">
+        <figcaption>
+          <blockquote>
+            <p>Best dealer in terms of real estate property weither it is resedential or commerical.</p>
+          </blockquote>
+          <h3>Ram</h3>
+          <h4 class="cityTestimonial">Jaipur</h4>
+        </figcaption>
+      </figure>
+      <figure class="snip1533">
+        <figcaption>
+          <blockquote>
+            <p>Enquiry process was smooth and flow of exeucution of dealing was good.</p>
+          </blockquote>
+          <h3>Akshay</h3>
+          <h4 class="cityTestimonial">New Delhi</h4>
+        </figcaption>
+      </figure>
+      <figure class="snip1533">
+        <figcaption>
+          <blockquote>
+            <p>Easy processing and dealer where good, pricing of property fine,got best deal here! </p>
+          </blockquote>
+          <h3>Mukesh</h3>
+          <h4 class="cityTestimonial">Mumbai</h4>
+        </figcaption>
+      </figure>
+    </div>
+
+
+    
+</template>
